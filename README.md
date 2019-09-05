@@ -16,6 +16,8 @@ format for dates which can be easily turned back into a date object as needed.
 There is a a simple user interface, I didn't do too much with it. It does work
 to a point.
 
+# The API and the UI.
+
 The API is defined with Swagger, so the specification is browseable here.
 
 If you navigate to [http://localhost:5000/api/ui](http://localhost:5000/api/ui), you will find the API doc to the server requests.
@@ -23,6 +25,10 @@ If you navigate to [http://localhost:5000/api/ui](http://localhost:5000/api/ui),
 Browse [here](http://localhost:5000/) to get to the server side UI. It's just a sanity check really 
 
 There is a UI project that works with this server [in this repo.](http://github.com/ericgebhart/prod-inv-ui.git)
+
+# ToDo.
+
+I need to add some tests. Just to make sure what little is there really works. :-)
 
 
 # these are the goals.  On verra.
