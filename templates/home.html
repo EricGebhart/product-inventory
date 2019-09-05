@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="static/css/home.css">
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="banner">Product Demo Application</h1>
+        <div class="section editor">
+            <input id="product_id" type="hidden" value="" />
+            <label for="name">Product Name
+                <input id="name" type="text" />
+            </label>
+            <br />
+            <label for="inventory_level">Inventory Level
+                <input id="inventory_level" type="number" />
+            </label>
+            <br />
+            <button id="create">Create</button>
+        </div>
+        <div class="product">
+            <table>
+                <caption>Products</caption>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Inventory Level</th>
+                        <th>Update Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </div>
+</body>
+<script src="static/js/home.js"></script>
+</html>

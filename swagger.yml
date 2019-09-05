@@ -1,0 +1,167 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger Rest Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+# Paths supported by the server application
+paths:
+  /products:
+    get:
+      operationId: product.read_all
+      tags:
+        - Products
+      summary: Read the entire set of products, sorted by name
+      description: Read the entire set of products, sorted by name
+      responses:
+        200:
+          description: Successfully read product set operation
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: string
+                  description: Id of the product
+                name:
+                  type: string
+                  description: name of the product
+                timestamp:
+                  type: string
+                  description: Creation/Update timestamp of the product
+                inventory_level:
+                  type: integer
+                  description: Quantity in inventory at timestamp
+
+    post:
+      operationId: product.create
+      tags:
+        - Product
+      summary: Create a product
+      description: Create a new product
+      parameters:
+        - name: product
+          in: body
+          description: Product to create
+          required: True
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Name of product to create
+              inventory_level:
+                type: integer
+                description: Quantity of product
+      responses:
+        201:
+          description: Successfully created product
+          schema:
+            properties:
+              product_id:
+                type: string
+                description: Id of the product
+              name:
+                type: string
+                description: Name of the product
+              inventory_level:
+                type: integer
+                description: Quantity of product
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the product record
+
+  /products/{product_id}:
+    get:
+      operationId: product.read_one
+      tags:
+        - Products
+      summary: Read one product
+      description: Read one product
+      parameters:
+        - name: product_id
+          in: path
+          description: Id of the product to get
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully read product from products data operation
+          schema:
+            type: object
+            properties:
+              product_id:
+                type: string
+                description: Id of the product
+              name:
+                type: string
+                description: Name of the product
+              inventory_level:
+                type: integer
+                description: Quantity of the product
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the pproduct record
+
+    put:
+      operationId: product.update
+      tags:
+        - Products
+      summary: Update a product
+      description: Update a product
+      parameters:
+        - name: product_id
+          in: path
+          description: Id the product to update
+          type: integer
+          required: True
+        - name: product
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Name of the product
+              inventory_level:
+                type: integer
+                description: Quantity of the product
+      responses:
+        200:
+          description: Successfully updated product
+          schema:
+            properties:
+              product_id:
+                type: string
+                description: Id of the product in the database
+              name:
+                type: string
+                description: First name of the product
+              inventory_level:
+                type: integer
+                description: Quantity of the product.
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the product record
+
+    delete:
+      operationId: product.delete
+      tags:
+        - Products
+      summary: Delete a product from the products list
+      description: Delete a product
+      parameters:
+        - name: product_id
+          in: path
+          type: integer
+          description: Id of the product to delete
+          required: true
+      responses:
+        200:
+          description: Successfully deleted a product
